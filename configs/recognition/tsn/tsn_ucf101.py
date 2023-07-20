@@ -100,7 +100,7 @@ test_dataloader = dict(
 
 train_cfg = dict(
     type='EpochBasedTrainLoop',
-    max_epochs=50,  # change from 100 to 50
+    max_epochs=72,  # change from 100 to 50
     val_begin=1,
     val_interval=1)
 val_cfg = dict(type='ValLoop')
