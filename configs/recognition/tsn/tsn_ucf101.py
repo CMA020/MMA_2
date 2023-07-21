@@ -100,7 +100,7 @@ test_dataloader = dict(
 
 train_cfg = dict(
     type='EpochBasedTrainLoop',
-    max_epochs=72,  # change from 100 to 50
+    max_epochs=50,  # change from 100 to 50
     val_begin=1,
     val_interval=1)
 val_cfg = dict(type='ValLoop')
@@ -139,6 +139,6 @@ default_hooks = dict(checkpoint=dict(interval=3, max_keep_ckpts=3))
 auto_scale_lr = dict(enable=False, base_batch_size=1)
 
 
-load_from = os.path.expanduser('/content/MMA_2/work_dirs/tsn_ucf101/epoch_24.pth')
+load_from = os.path.expanduser('/content/MMA_2/work_dirs/tsn_ucf101/epoch_66.pth')
 #load_from = 'https://download.openmmlab.com/mmaction/v1.0/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x3-100e_kinetics400-rgb/tsn_imagenet-pretrained-r50_8xb32-1x1x3-100e_kinetics400-rgb_20220906-cd10898e.pth'
 
