@@ -13,10 +13,10 @@ model = dict(
 
 # dataset settings
 dataset_type = 'VideoDataset'
-data_root = os.path.expanduser('/content/MMA_2/MMA data/train')
-data_root_val = os.path.expanduser('/content/MMA_2/MMA data/val')
-ann_file_train = os.path.expanduser('/content/MMA_2/MMA data/train_video.txt')
-ann_file_val = os.path.expanduser('/content/MMA_2/MMA data/val_video.txt')
+data_root = os.path.expanduser('/content/MMA_2/MMA_data/train')
+data_root_val = os.path.expanduser('/content/MMA_2/MMA_data/val')
+ann_file_train = os.path.expanduser('/content/MMA_2/MMA_data/train_video.txt')
+ann_file_val = os.path.expanduser('/content/MMA_2/MMA_data/val_video.txt')
 
 file_client_args = dict(io_backend='disk')
 
