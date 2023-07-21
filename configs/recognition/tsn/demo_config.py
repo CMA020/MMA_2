@@ -14,8 +14,13 @@ model = dict(
 
 # dataset settings
 dataset_type = 'VideoDataset'
+<<<<<<< Updated upstream
 data_root_val = os.path.expanduser('content/MMA_2/MMA_data/val')
 ann_file_val = os.path.expanduser('content/MMA_2/MMA_data/val_video.txt')
+=======
+data_root_val = os.path.expanduser('content/MMA_2/MMA data/val')
+ann_file_val = os.path.expanduser('content/MMA_2/MMA data/val_video.txt')
+>>>>>>> Stashed changes
 
 file_client_args = dict(io_backend='disk')
 
