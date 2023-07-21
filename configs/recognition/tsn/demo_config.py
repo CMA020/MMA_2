@@ -27,7 +27,7 @@ test_pipeline = [
         num_clips=25,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
+    #dict(type='Resize', scale=(-1, 256)),
     #dict(type='TenCrop', crop_size=224),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
