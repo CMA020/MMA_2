@@ -1,5 +1,4 @@
 import os
-
 _base_ = [
     '../../_base_/models/tsn_r50.py',
     '../../_base_/default_runtime.py'
@@ -9,59 +8,53 @@ _base_ = [
 model = dict(
     cls_head=dict(
         type='TSNHead',
-        num_classes=2
+        num_classes=2  # change from 400 to 2 for your custom model
     ))
 
 # dataset settings
-dataset_type = 'VideoDataset'
-
-data_root_val = os.path.expanduser('content/MMA_2/MMA_data/val')
-ann_file_val = os.path.expanduser('content/MMA_2/MMA_data/val_video.txt')
-
-data_root_val = os.path.expanduser('content/MMA_2/MMA data/val')
-ann_file_val = os.path.expanduser('content/MMA_2/MMA data/val_video.txt')
-
+dataset_type = 'RawframeDataset'
+data_root = os.path.expanduser('/content/MMA_2/MMA_data/demo')  # Update the path to your demo video directory
+ann_file = os.path.expanduser('/content/MMA_2/MMA_data/demo/demo_video.txt')  # Update the path to the annotation file
 
 file_client_args = dict(io_backend='disk')
 
-val_pipeline = [
+test_pipeline = [
     dict(type='DecordInit', **file_client_args),
     dict(
         type='SampleFrames',
         clip_len=1,
         frame_interval=1,
-        num_clips=3,
+        num_clips=25,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(1920,1080)),
+    dict(type='Resize', scale=(-1, 256)),
     dict(type='TenCrop', crop_size=1920),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
 ]
 
-val_dataloader = dict(
-    batch_size=1,
+# DataLoader settings for prediction
+test_dataloader = dict(
+    batch_size=1,  # Set batch_size to 1 for inference
     num_workers=8,
     persistent_workers=True,
-    sampler=dict(type='DefaultSampler', shuffle=False),
+    sampler=dict(type='SequentialSampler'),  # Use SequentialSampler for prediction
     dataset=dict(
         type=dataset_type,
-        ann_file=ann_file_val,
-        data_prefix=dict(video=data_root_val),
-        pipeline=val_pipeline,
-        test_mode=True))
+        ann_file=ann_file,
+        data_prefix=dict(video=data_root),
+        pipeline=test_pipeline,
+        test_mode=True
+    )
+)
 
-test_cfg = dict(type='TestLoop')
+# Load the custom weight file for prediction
+load_from = '/content/MMA_2/work_dirs/tsn_ucf101/epoch_48.pth'  # Update the path to your custom weight file
 
-# learning policy
-param_scheduler = None
+# Remove learning policy, optimizer, evaluators, and hooks since we are performing prediction, not training
 
-# optimizer
-optim_wrapper = None
-
-# evaluator
-val_evaluator = dict(type='TopKAccuracy', k=1)
-
-default_hooks = dict()
-
-load_from = os.path.expanduser('content/MMA_2/work_dirs/tsn_ucf101/epoch_48.pth')
+# Default setting for scaling LR automatically
+#   - `enable` means enable scaling LR automatically
+#       or not by default.
+#   - `base_batch_size` = (8 GPUs) x (32 samples per GPU).
+auto_scale_lr = dict(enable=False, base_batch_size=1)
