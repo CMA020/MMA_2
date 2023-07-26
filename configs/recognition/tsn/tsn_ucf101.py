@@ -22,7 +22,7 @@ file_client_args = dict(io_backend='disk')
 
 train_pipeline = [
     dict(type='DecordInit', **file_client_args),
-    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=6),
+    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=5),
     dict(type='DecordDecode'),
     dict(type='Resize', scale=(1920,1080)),
     dict(
