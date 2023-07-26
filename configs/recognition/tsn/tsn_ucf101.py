@@ -22,16 +22,16 @@ file_client_args = dict(io_backend='disk')
 
 train_pipeline = [
     dict(type='DecordInit', **file_client_args),
-    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=5),
+    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=4),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(1920,1080)),
+    dict(type='Resize', scale=(1820,1000)),
     dict(
         type='MultiScaleCrop',
         input_size=1920,
         scales=(1, 0.875, 0.75, 0.66),
         random_crop=False,
         max_wh_scale_gap=1),
-    dict(type='Resize', scale=(1920, 1080), keep_ratio=False),
+    dict(type='Resize', scale=(1820, 1000), keep_ratio=False),
     dict(type='Flip', flip_ratio=0.5),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
@@ -45,8 +45,8 @@ val_pipeline = [
         num_clips=3,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
-    dict(type='CenterCrop', crop_size=1920),
+    dict(type='Resize', scale=(1820,1000)),
+    dict(type='CenterCrop', crop_size=1820),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
 ]
@@ -59,8 +59,8 @@ test_pipeline = [
         num_clips=25,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
-    dict(type='TenCrop', crop_size=1920),
+    dict(type='Resize', scale=(1820, 1000)),
+    dict(type='TenCrop', crop_size=1820),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
 ]
