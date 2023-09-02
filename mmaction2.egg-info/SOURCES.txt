@@ -164,6 +164,7 @@ mmaction/.mim/configs/recognition/tsm/tsm_imagenet-pretrained-r50_8xb16-1x1x8-10
 mmaction/.mim/configs/recognition/tsm/tsm_imagenet-pretrained-r50_8xb16-1x1x8-50e_kinetics400-rgb.py
 mmaction/.mim/configs/recognition/tsm/tsm_imagenet-pretrained-r50_8xb16-1x1x8-50e_sthv2-rgb.py
 mmaction/.mim/configs/recognition/tsm/tsm_imagenet-pretrained-r50_8xb16-dense-1x1x8-50e_kinetics400-rgb.py
+mmaction/.mim/configs/recognition/tsn/demo_config.py
 mmaction/.mim/configs/recognition/tsn/metafile.yml
 mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r101_8xb32-1x1x8-100e_kinetics400-rgb.py
 mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x16-50e_sthv2-rgb.py
@@ -172,6 +173,8 @@ mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x5-10
 mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x8-100e_kinetics400-rgb.py
 mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x8-50e_sthv2-rgb.py
 mmaction/.mim/configs/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-dense-1x1x5-100e_kinetics400-rgb.py
+mmaction/.mim/configs/recognition/tsn/tsn_ucf101.py
+mmaction/.mim/configs/recognition/tsn/tsn_ucf101_1.py
 mmaction/.mim/configs/recognition/tsn/custom_backbones/tsn_imagenet-pretrained-dense161_8xb32-1x1x3-100e_kinetics400-rgb.py
 mmaction/.mim/configs/recognition/tsn/custom_backbones/tsn_imagenet-pretrained-rn101-32x4d_8xb32-1x1x3-100e_kinetics400-rgb.py
 mmaction/.mim/configs/recognition/tsn/custom_backbones/tsn_imagenet-pretrained-swin-transformer_8xb32-1x1x3-100e_kinetics400-rgb.py
