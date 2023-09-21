@@ -49,7 +49,7 @@ test_dataloader = dict(
 )
 
 # Load the custom weight file for prediction
-load_from = os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/epoch_50.pth') # Update the path to your custom weight file
+load_from = os.path.expanduser('~/content/MMA_2/epoch_12l.pth') # Update the path to your custom weight file
 
 # Remove learning policy, optimizer, evaluators, and hooks since we are performing prediction, not training
 
