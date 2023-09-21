@@ -1,7 +1,7 @@
 import os
 _base_ = [
-     os.path.expanduser('~/MMA_2/configs/_base_/models/tsn_r50.py'),
-    os.path.expanduser('~/MMA_2/configs/_base_/default_runtime.py')
+     os.path.expanduser('/content/MMA_2/configs/_base_/models/tsn_r50.py'),
+    os.path.expanduser('/content/MMA_2/configs/_base_/default_runtime.py')
 ]
 
 # model settings
