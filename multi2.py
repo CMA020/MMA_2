@@ -18,12 +18,12 @@ import multiprocessing
 
 from mmaction.apis import init_recognizer
 stack1 = deque(maxlen=225)
-model = YOLO(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/P_1920_30_3.pt'))
-cap = cv2.VideoCapture(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/manc.mp4'))
+model = YOLO(os.path.expanduser('~/MMA_2/P_1920_30_3.pt'))
+cap = cv2.VideoCapture(os.path.expanduser('~/MMA_2/manc.mp4'))
 #cap = cv2.VideoCapture(0)
 
 
-img = cv2.imread(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/1.png'))
+img = cv2.imread(os.path.expanduser('~/MMA_2/1.png'))
 
 FONTFACE = cv2.FONT_HERSHEY_COMPLEX_SMALL
 FONTSCALE = 1
@@ -85,7 +85,7 @@ def show_results(queue):
     msg = "he"
 
     print('Press "Esc", "q" or "Q" to exit')
-    cap = cv2.VideoCapture(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/manc.mp4'))
+    cap = cv2.VideoCapture(os.path.expanduser('~/MMA_2/manc.mp4'))
     text_info = {}
     cur_time = time.time()
     while True:
@@ -252,7 +252,7 @@ def camera1(queue):
         # Process the frame only when the counter is divisible by 3
         if frame_counter % 3 == 0:
 
-            model = YOLO(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/P_1920_30_3.pt'))
+            model = YOLO(os.path.expanduser('~/MMA_2/P_1920_30_3.pt'))
 
             # model.predict(frame, save=True, show=True)
 
@@ -295,18 +295,18 @@ def main():
 
     device = args.device
 
-    cfg = Config.fromfile(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/demo_config.py')
+    cfg = Config.fromfile(os.path.expanduser('~/MMA_2/demo_config.py')
                           )
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
 
     # Build the recognizer from a config file and checkpoint file/url
-    model = init_recognizer(cfg, os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/epoch_12l.pth')
+    model = init_recognizer(cfg, os.path.expanduser('~/MMA_2/epoch_12l.pth')
                             , device=args.device)
     #camera = cv2.VideoCapture(args.camera_id)
     data = dict(img_shape=None, modality='RGB', label=-1)
 
-    with open(os.path.expanduser('~/catkin_ws/src/urdf_config7/scripts/label_names.txt'), 'r') as f:
+    with open(os.path.expanduser('~/MMA_2/label_names.txt'), 'r') as f:
         label = [line.strip() for line in f]
 
     # prepare test pipeline from non-camera pipeline
