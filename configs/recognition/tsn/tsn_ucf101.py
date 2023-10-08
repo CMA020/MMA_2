@@ -139,6 +139,10 @@ default_hooks = dict(checkpoint=dict(interval=3, max_keep_ckpts=3))
 auto_scale_lr = dict(enable=False, base_batch_size=1)
 
 
+<<<<<<< HEAD
 load_from = os.path.expanduser('/content/MMA_2/work_dirs/tsn_ucf101/epoch_100_10_T.pth')
+=======
+load_from = os.path.expanduser('/content/MMA_2/work_dirs/tsn_ucf101/epoch_9_6_T.pth')
+>>>>>>> 88a782944866facd5f33f0208ea3bd861ce402a3
 #load_from = 'https://download.openmmlab.com/mmaction/v1.0/recognition/tsn/tsn_imagenet-pretrained-r50_8xb32-1x1x3-100e_kinetics400-rgb/tsn_imagenet-pretrained-r50_8xb32-1x1x3-100e_kinetics400-rgb_20220906-cd10898e.pth'
 
