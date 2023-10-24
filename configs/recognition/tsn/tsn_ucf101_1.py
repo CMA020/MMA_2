@@ -13,16 +13,16 @@ model = dict(
 
 # dataset settings
 dataset_type = 'VideoDataset'
-data_root = os.path.expanduser('~/MMA_2/MMA data/train')
-data_root_val = os.path.expanduser('~/MMA_2/MMA data/val')
-ann_file_train = os.path.expanduser('~/MMA_2/MMA data/train_video.txt')
-ann_file_val = os.path.expanduser('~/MMA_2/MMA data/val_video.txt')
+data_root = os.path.expanduser('~/MMA_2/MMA_data/train')
+data_root_val = os.path.expanduser('~/MMA_2/MMA_data/val')
+ann_file_train = os.path.expanduser('~/MMA_2/MMA_data/train_video.txt')
+ann_file_val = os.path.expanduser('~/MMA_2/MMA_data/val_video.txt')
 
 file_client_args = dict(io_backend='disk')
 
 train_pipeline = [
     dict(type='DecordInit', **file_client_args),
-    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=3),
+    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=4),
     dict(type='DecordDecode'),
     dict(type='Resize', scale=(-1, 256)),
     dict(
@@ -42,7 +42,7 @@ val_pipeline = [
         type='SampleFrames',
         clip_len=1,
         frame_interval=1,
-        num_clips=3,
+        num_clips=4,
         test_mode=True),
     dict(type='DecordDecode'),
     dict(type='Resize', scale=(-1, 256)),
@@ -56,7 +56,7 @@ test_pipeline = [
         type='SampleFrames',
         clip_len=1,
         frame_interval=1,
-        num_clips=25,
+        num_clips=4,
         test_mode=True),
     dict(type='DecordDecode'),
     dict(type='Resize', scale=(-1, 256)),
