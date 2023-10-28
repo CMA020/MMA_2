@@ -130,7 +130,7 @@ optim_wrapper = dict(
 val_evaluator = dict(type='AccMetric')
 test_evaluator = val_evaluator
 
-default_hooks = dict(checkpoint=dict(interval=3, max_keep_ckpts=3))
+default_hooks = dict(checkpoint=dict(interval=2, max_keep_ckpts=4))
 
 # Default setting for scaling LR automatically
 #   - `enable` means enable scaling LR automatically
