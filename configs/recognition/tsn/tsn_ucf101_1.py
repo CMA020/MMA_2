@@ -22,9 +22,9 @@ file_client_args = dict(io_backend='disk')
 
 train_pipeline = [
     dict(type='DecordInit', **file_client_args),
-    dict(type='SampleFrames', clip_len=1, frame_interval=1, num_clips=4),
+    dict(type='SampleFrames', clip_len=5, frame_interval=1, num_clips=1),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
+    dict(type='Resize', scale=(1920,1080)),
     dict(
         type='MultiScaleCrop',
         input_size=1920,
@@ -40,12 +40,12 @@ val_pipeline = [
     dict(type='DecordInit', **file_client_args),
     dict(
         type='SampleFrames',
-        clip_len=1,
+        clip_len=5,
         frame_interval=1,
-        num_clips=4,
+        num_clips=1,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
+    dict(type='Resize', scale=(1920,1080)),
     dict(type='CenterCrop', crop_size=1920),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
@@ -54,12 +54,12 @@ test_pipeline = [
     dict(type='DecordInit', **file_client_args),
     dict(
         type='SampleFrames',
-        clip_len=1,
+        clip_len=5,
         frame_interval=1,
-        num_clips=4,
+        num_clips=1,
         test_mode=True),
     dict(type='DecordDecode'),
-    dict(type='Resize', scale=(-1, 256)),
+    dict(type='Resize', scale=(1920,1080)),
     dict(type='TenCrop', crop_size=1920),
     dict(type='FormatShape', input_format='NCHW'),
     dict(type='PackActionInputs')
